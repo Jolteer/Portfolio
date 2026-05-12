@@ -27,11 +27,11 @@ export function ProjectCard({
               {project.title}
             </Link>
           </h3>
-          {project.role ? (
+          {project.role ?
             <p className="mt-0.5 text-xs text-muted-foreground">
               {project.role}
             </p>
-          ) : null}
+          : null}
         </div>
         <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </div>
@@ -51,7 +51,7 @@ export function ProjectCard({
         ))}
       </div>
 
-      {project.links?.github ? (
+      {project.links?.github ?
         <Link
           href={project.links.github}
           target="_blank"
@@ -61,7 +61,7 @@ export function ProjectCard({
         >
           <Github className="h-4 w-4" />
         </Link>
-      ) : null}
+      : null}
     </article>
   );
 }

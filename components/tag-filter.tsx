@@ -40,9 +40,9 @@ export function TagFilter({
               onClick={() => setActive(tag)}
               className={cn(
                 "rounded-full border px-3 py-1 text-xs transition-colors",
-                selected
-                  ? "border-primary/40 bg-primary text-primary-foreground"
-                  : "border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted",
+                selected ?
+                  "border-primary/40 bg-primary text-primary-foreground"
+                : "border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted",
               )}
             >
               {tag}
@@ -51,17 +51,16 @@ export function TagFilter({
         })}
       </div>
 
-      {visible.length === 0 ? (
+      {visible.length === 0 ?
         <p className="text-sm text-muted-foreground">
           No projects yet for {active}.
         </p>
-      ) : (
-        <div className="grid gap-4 sm:grid-cols-2">
+      : <div className="grid gap-4 sm:grid-cols-2">
           {visible.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-      )}
+      }
     </div>
   );
 }

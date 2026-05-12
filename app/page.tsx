@@ -77,18 +77,17 @@ export default function HomePage() {
           </Link>
         </div>
 
-        {featured.length === 0 ? (
+        {featured.length === 0 ?
           <p className="text-sm text-muted-foreground">
             Drop a `.mdx` file into <code>content/projects/</code> with{" "}
             <code>featured: true</code> to populate this section.
           </p>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
+        : <div className="grid gap-4 sm:grid-cols-2">
             {featured.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
-        )}
+        }
       </section>
 
       <section className="space-y-3">

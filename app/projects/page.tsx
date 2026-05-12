@@ -22,14 +22,12 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      {projects.length === 0 ? (
+      {projects.length === 0 ?
         <p className="text-sm text-muted-foreground">
-          No projects yet. Add an MDX file in{" "}
-          <code>content/projects/</code> to get started.
+          No projects yet. Add an MDX file in <code>content/projects/</code> to
+          get started.
         </p>
-      ) : (
-        <TagFilter projects={projects} tags={tags} />
-      )}
+      : <TagFilter projects={projects} tags={tags} />}
     </div>
   );
 }

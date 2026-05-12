@@ -1,7 +1,8 @@
 export const siteConfig = {
   name: "Joshua",
   title: "Joshua | Software Engineer",
-  shortDescription: "Software engineer building reliable, well-crafted web apps.",
+  shortDescription:
+    "Software engineer building reliable, well-crafted web apps.",
   description:
     "Portfolio of Joshua, a software engineer focused on full-stack web, ML, and developer tools. Selected projects, writing, and resume.",
   url: "https://your-name.vercel.app",

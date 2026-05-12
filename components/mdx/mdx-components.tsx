@@ -3,11 +3,7 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-function MdxLink({
-  href,
-  children,
-  ...rest
-}: ComponentPropsWithoutRef<"a">) {
+function MdxLink({ href, children, ...rest }: ComponentPropsWithoutRef<"a">) {
   if (!href) return <a {...rest}>{children}</a>;
   const isExternal = /^https?:\/\//.test(href);
   if (isExternal) {
@@ -70,7 +66,9 @@ function Callout({
         calloutStyles[variant],
       )}
     >
-      {title ? <p className="font-semibold mb-1">{title}</p> : null}
+      {title ?
+        <p className="font-semibold mb-1">{title}</p>
+      : null}
       <div className="[&>p]:m-0 [&>p+p]:mt-2">{children}</div>
     </aside>
   );

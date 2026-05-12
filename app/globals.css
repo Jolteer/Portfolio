@@ -76,12 +76,18 @@
   /* Smooth theme transitions, but skip on initial load */
   .theme-ready,
   .theme-ready * {
-    transition: background-color 200ms ease, border-color 200ms ease,
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
       color 200ms ease;
   }
 
   ::selection {
-    background-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--color-primary) 30%,
+      transparent
+    );
   }
 }
 

@@ -57,9 +57,7 @@ function parseProjectFile(filename: string): Project {
 export function getAllProjects(): Project[] {
   return readProjectsDir()
     .map(parseProjectFile)
-    .sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function getFeaturedProjects(limit = 3): Project[] {

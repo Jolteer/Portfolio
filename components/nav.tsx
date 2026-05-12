@@ -30,9 +30,9 @@ export function Nav() {
                   href={item.href}
                   className={cn(
                     "px-3 py-1.5 text-sm rounded-md transition-colors",
-                    active
-                      ? "text-foreground bg-muted"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                    active ?
+                      "text-foreground bg-muted"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted",
                   )}
                 >
                   {item.label}

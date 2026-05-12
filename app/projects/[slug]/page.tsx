@@ -89,9 +89,9 @@ export default async function ProjectPage({
           ))}
         </div>
 
-        {project.links ? (
+        {project.links ?
           <div className="flex flex-wrap items-center gap-2 pt-3">
-            {project.links.github ? (
+            {project.links.github ?
               <Link
                 href={project.links.github}
                 target="_blank"
@@ -101,8 +101,8 @@ export default async function ProjectPage({
                 <Github className="h-4 w-4" />
                 Source
               </Link>
-            ) : null}
-            {project.links.live ? (
+            : null}
+            {project.links.live ?
               <Link
                 href={project.links.live}
                 target="_blank"
@@ -112,8 +112,8 @@ export default async function ProjectPage({
                 <ExternalLink className="h-4 w-4" />
                 Live
               </Link>
-            ) : null}
-            {project.links.demo ? (
+            : null}
+            {project.links.demo ?
               <Link
                 href={project.links.demo}
                 target="_blank"
@@ -123,12 +123,12 @@ export default async function ProjectPage({
                 <ExternalLink className="h-4 w-4" />
                 Demo
               </Link>
-            ) : null}
+            : null}
           </div>
-        ) : null}
+        : null}
       </header>
 
-      {project.cover ? (
+      {project.cover ?
         <div className="overflow-hidden rounded-lg border border-border bg-muted">
           <Image
             src={project.cover}
@@ -139,7 +139,7 @@ export default async function ProjectPage({
             priority
           />
         </div>
-      ) : null}
+      : null}
 
       <div className="prose prose-portfolio max-w-none dark:prose-invert">
         <MdxContent source={project.body} />

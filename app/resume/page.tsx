@@ -25,7 +25,9 @@ const education = [
     when: "2022 \u2013 2024",
     title: "B.S. Computer Science",
     org: "Your University",
-    bullets: ["Capstone: personal-finance forecasting app (FastAPI + Flutter)."],
+    bullets: [
+      "Capstone: personal-finance forecasting app (FastAPI + Flutter).",
+    ],
   },
 ];
 

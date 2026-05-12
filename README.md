@@ -81,10 +81,10 @@ preview URL automatically.
 
 ## Useful scripts
 
-| Command           | What it does                                  |
-| ----------------- | --------------------------------------------- |
-| `npm run dev`     | Local dev server with Fast Refresh            |
-| `npm run build`   | Production build                              |
-| `npm run start`   | Run the production build                      |
-| `npm run lint`    | Lint with `next lint`                         |
-| `npm run typecheck` | Type-check the project (no emit)            |
+| Command             | What it does                       |
+| ------------------- | ---------------------------------- |
+| `npm run dev`       | Local dev server with Fast Refresh |
+| `npm run build`     | Production build                   |
+| `npm run start`     | Run the production build           |
+| `npm run lint`      | Lint with `next lint`              |
+| `npm run typecheck` | Type-check the project (no emit)   |

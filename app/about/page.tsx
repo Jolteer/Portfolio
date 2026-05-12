@@ -59,11 +59,11 @@ export default function AboutPage() {
         </p>
       </header>
 
-      {aboutBody ? (
+      {aboutBody ?
         <section className="prose prose-portfolio max-w-none dark:prose-invert">
           <MdxContent source={aboutBody} />
         </section>
-      ) : null}
+      : null}
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold tracking-tight">Skills</h2>
@@ -98,7 +98,10 @@ export default function AboutPage() {
               <p className="text-xs text-muted-foreground">{entry.when}</p>
               <p className="font-medium">
                 {entry.title}
-                <span className="text-muted-foreground"> &middot; {entry.org}</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  &middot; {entry.org}
+                </span>
               </p>
               <p className="text-sm text-muted-foreground">
                 {entry.description}
