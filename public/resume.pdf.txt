@@ -1,0 +1,6 @@
+Replace this file with your actual resume.pdf in the public/ directory.
+
+The Resume page (/resume) and the "Download PDF" button both link to
+/resume.pdf, so any file at public/resume.pdf will be served at that URL.
+
+You can delete this .txt file once you add the real PDF.

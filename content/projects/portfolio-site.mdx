@@ -1,0 +1,50 @@
+---
+title: "This Portfolio"
+slug: "portfolio-site"
+summary: "Self-hosted portfolio built with Next.js 15, Tailwind v4, and MDX. Adding a project is one Markdown file and a git push."
+tags: ["Next.js", "TypeScript", "Tailwind", "MDX"]
+role: "Design + build"
+date: "2026-05-11"
+featured: true
+links:
+  github: "https://github.com/your-username/portfolio"
+  live: "https://your-name.vercel.app"
+---
+
+## Why I built it from scratch
+
+I wanted a portfolio that:
+
+1. Shows recruiters I can actually build a real Next.js app, not just drag
+   blocks around in a no-code builder.
+2. Stays trivial to update &mdash; new project = new `.mdx` file.
+3. Has a great Lighthouse score, dark mode, and shareable per-project OG
+   images out of the box.
+
+## Stack
+
+- **Next.js 15 (App Router) + React 19** for routing, RSC, static generation.
+- **Tailwind CSS v4** with a small, OKLCH-based theme.
+- **MDX via `next-mdx-remote`** with `remark-gfm` and `rehype-pretty-code`
+  (Shiki) for syntax-highlighted code blocks.
+- **Vercel** for deploys + analytics.
+
+## Adding a new project
+
+```mdx
+---
+title: "Cool New Thing"
+slug: "cool-new-thing"
+summary: "What it is in one sentence."
+tags: ["TypeScript", "React"]
+date: "2026-06-01"
+featured: true
+---
+
+## Problem
+...
+```
+
+That's it &mdash; the homepage and `/projects` page pick it up automatically,
+the OG image is generated dynamically, and the sitemap regenerates on the
+next build.

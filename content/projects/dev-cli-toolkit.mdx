@@ -1,0 +1,38 @@
+---
+title: "Dev CLI Toolkit"
+slug: "dev-cli-toolkit"
+summary: "A small TypeScript CLI that wraps the boring parts of starting a new project: scaffolding, env setup, and first deploy."
+tags: ["TypeScript", "Node.js", "CLI"]
+role: "Solo project"
+date: "2026-02-20"
+featured: true
+links:
+  github: "https://github.com/your-username/dev-cli-toolkit"
+---
+
+## Why
+
+Every new side project started the same way: copy `.env`, set up GitHub,
+configure deploys, write the same `README` skeleton. I wanted one command.
+
+## What it does
+
+- `kit new <name>` &mdash; clones a chosen template, swaps placeholders, and
+  initializes a fresh git repo.
+- `kit env` &mdash; interactive prompt that fills in `.env` from a typed
+  schema and validates required keys.
+- `kit deploy` &mdash; thin wrapper over the Vercel CLI plus a sanity check
+  that the project actually builds locally first.
+
+```bash
+kit new portfolio --template next-mdx
+cd portfolio
+kit env
+kit deploy
+```
+
+## What I learned
+
+Designing CLIs that coding agents (and tired humans at 1am) can use reliably
+is its own discipline: every command needs `--help` with examples, predictable
+exit codes, and machine-parseable output as an opt-in.

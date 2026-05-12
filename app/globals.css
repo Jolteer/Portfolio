@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: oklch(0.99 0 0);
+  --color-foreground: oklch(0.18 0.01 260);
+
+  --color-muted: oklch(0.96 0.005 260);
+  --color-muted-foreground: oklch(0.45 0.02 260);
+
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.18 0.01 260);
+
+  --color-border: oklch(0.92 0.005 260);
+  --color-input: oklch(0.92 0.005 260);
+  --color-ring: oklch(0.55 0.18 265);
+
+  --color-primary: oklch(0.55 0.18 265);
+  --color-primary-foreground: oklch(0.99 0 0);
+
+  --color-secondary: oklch(0.96 0.005 260);
+  --color-secondary-foreground: oklch(0.2 0.01 260);
+
+  --color-accent: oklch(0.96 0.005 260);
+  --color-accent-foreground: oklch(0.2 0.01 260);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius: 0.625rem;
+}
+
+@layer base {
+  .dark {
+    --color-background: oklch(0.14 0.01 260);
+    --color-foreground: oklch(0.97 0 0);
+
+    --color-muted: oklch(0.21 0.01 260);
+    --color-muted-foreground: oklch(0.7 0.02 260);
+
+    --color-card: oklch(0.17 0.01 260);
+    --color-card-foreground: oklch(0.97 0 0);
+
+    --color-border: oklch(0.27 0.01 260);
+    --color-input: oklch(0.27 0.01 260);
+    --color-ring: oklch(0.7 0.16 265);
+
+    --color-primary: oklch(0.78 0.14 265);
+    --color-primary-foreground: oklch(0.16 0.01 260);
+
+    --color-secondary: oklch(0.22 0.01 260);
+    --color-secondary-foreground: oklch(0.97 0 0);
+
+    --color-accent: oklch(0.22 0.01 260);
+    --color-accent-foreground: oklch(0.97 0 0);
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: light dark;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  /* Smooth theme transitions, but skip on initial load */
+  .theme-ready,
+  .theme-ready * {
+    transition: background-color 200ms ease, border-color 200ms ease,
+      color 200ms ease;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+  }
+}
+
+/* MDX prose tweaks */
+.prose-portfolio {
+  --tw-prose-body: var(--color-foreground);
+  --tw-prose-headings: var(--color-foreground);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--color-foreground);
+  --tw-prose-counters: var(--color-muted-foreground);
+  --tw-prose-bullets: var(--color-muted-foreground);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-quotes: var(--color-foreground);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-code: var(--color-foreground);
+  --tw-prose-pre-code: oklch(0.95 0 0);
+  --tw-prose-pre-bg: oklch(0.18 0.01 260);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+}
+
+/* shiki / rehype-pretty-code */
+[data-rehype-pretty-code-figure] pre {
+  padding: 1rem 0;
+  border-radius: var(--radius);
+  background-color: oklch(0.18 0.01 260);
+  overflow-x: auto;
+}
+
+[data-rehype-pretty-code-figure] code {
+  display: grid;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  padding: 0 1rem;
+  border-left: 2px solid transparent;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background-color: color-mix(in oklch, var(--color-primary) 12%, transparent);
+  border-left-color: var(--color-primary);
+}
+
+[data-rehype-pretty-code-title] {
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted-foreground);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background-color: var(--color-muted);
+}
+
+[data-rehype-pretty-code-title] + pre {
+  border-radius: 0 0 var(--radius) var(--radius);
+  margin-top: 0;
+}
+
+code:not(pre code) {
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.3rem;
+  background-color: var(--color-muted);
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}

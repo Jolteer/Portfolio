@@ -1,0 +1,44 @@
+---
+title: "Finance ML Capstone"
+slug: "finance-ml-capstone"
+summary: "A FastAPI + Flutter app that forecasts personal cash flow from imported bank transactions, with budget and goal tracking."
+tags: ["Python", "FastAPI", "Flutter", "ML", "PostgreSQL"]
+role: "Full-stack + ML"
+date: "2026-04-15"
+featured: true
+links:
+  github: "https://github.com/your-username/finance-ml"
+---
+
+## Problem
+
+Most personal-finance apps tell you what already happened. I wanted one that
+could answer "given my last 12 months of spending, will I overshoot rent next
+month?" before it actually happens.
+
+## What I built
+
+A layered FastAPI backend that ingests bank-CSV imports, normalizes them into
+budgets, goals, and transactions, and serves a Flutter mobile client.
+
+- Forecasting model: gradient-boosted regressor trained per-user on rolling
+  category-level windows.
+- Backend: FastAPI with SQLAlchemy + Postgres, layered into routes / services /
+  repositories so each domain (budgets, goals, transactions) follows the same
+  shape.
+- Frontend: Flutter app with a custom chart widget for projected vs. actual
+  spend.
+
+<Callout title="Why per-user models" variant="info">
+  Global models smoothed away the patterns that mattered for individuals
+  (e.g. someone who buys groceries once a month). Per-user models with very
+  light hyper-parameter search were both more accurate and easier to debug.
+</Callout>
+
+## Impact
+
+- Personal forecast accuracy within ~8% of actual monthly spend across 6 test
+  users.
+- Cut the time to onboard a new domain (e.g. "savings goal") from a day to
+  about an hour by templating the layered structure.
+- Capstone demo, used as a reference for course conventions afterward.
