@@ -10,15 +10,25 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-4">
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/50">
+      <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
-          className="font-semibold tracking-tight hover:opacity-80 transition-opacity"
+          className="group inline-flex items-center gap-2 font-semibold tracking-tight"
         >
-          {siteConfig.name}
+          <span
+            aria-hidden
+            className="relative inline-flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-[var(--brand-1)] via-[var(--brand-2)] to-[var(--brand-3)] text-[11px] font-bold text-white shadow-sm transition-transform group-hover:scale-105"
+          >
+            {siteConfig.name.charAt(0)}
+            <span className="absolute inset-0 rounded-md opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-60 bg-gradient-to-br from-[var(--brand-1)] via-[var(--brand-2)] to-[var(--brand-3)]" />
+          </span>
+          <span className="transition-opacity group-hover:opacity-80">
+            {siteConfig.name}
+          </span>
         </Link>
-        <nav className="flex items-center gap-1 sm:gap-2">
+
+        <nav className="flex items-center gap-0.5 sm:gap-1">
           {siteConfig.nav
             .filter((item) => item.href !== "/")
             .map((item) => {
@@ -28,14 +38,21 @@ export function Nav() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
-                    "px-3 py-1.5 text-sm rounded-md transition-colors",
-                    active ?
-                      "text-foreground bg-muted"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted",
+                    "relative rounded-md px-3 py-1.5 text-sm transition-colors",
+                    active ? "text-foreground" : (
+                      "text-muted-foreground hover:text-foreground"
+                    ),
                   )}
                 >
-                  {item.label}
+                  {active ?
+                    <span
+                      aria-hidden
+                      className="absolute inset-0 rounded-md bg-muted/80 ring-1 ring-border/60"
+                    />
+                  : null}
+                  <span className="relative">{item.label}</span>
                 </Link>
               );
             })}

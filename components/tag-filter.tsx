@@ -23,7 +23,7 @@ export function TagFilter({
   }, [active, projects]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       <div
         role="tablist"
         aria-label="Filter projects by tag"
@@ -39,10 +39,10 @@ export function TagFilter({
               aria-selected={selected}
               onClick={() => setActive(tag)}
               className={cn(
-                "rounded-full border px-3 py-1 text-xs transition-colors",
+                "rounded-full border px-3 py-1 text-xs font-medium transition-all",
                 selected ?
-                  "border-primary/40 bg-primary text-primary-foreground"
-                : "border-border bg-background text-muted-foreground hover:text-foreground hover:bg-muted",
+                  "border-foreground bg-foreground text-background shadow-sm"
+                : "border-border/70 bg-background/60 text-muted-foreground backdrop-blur hover:border-border hover:bg-muted hover:text-foreground",
               )}
             >
               {tag}
@@ -52,8 +52,8 @@ export function TagFilter({
       </div>
 
       {visible.length === 0 ?
-        <p className="text-sm text-muted-foreground">
-          No projects yet for {active}.
+        <p className="rounded-lg border border-dashed border-border bg-card/40 p-6 text-sm text-muted-foreground">
+          No projects yet for &ldquo;{active}&rdquo;.
         </p>
       : <div className="grid gap-4 sm:grid-cols-2">
           {visible.map((project) => (

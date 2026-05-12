@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
+import { BackgroundFX } from "@/components/background-fx";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -94,8 +95,12 @@ export default function RootLayout({
           >
             Skip to content
           </a>
+          <BackgroundFX />
           <Nav />
-          <main id="main" className="mx-auto max-w-3xl px-4 py-12 sm:py-16">
+          <main
+            id="main"
+            className="relative mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-20"
+          >
             {children}
           </main>
           <Footer />

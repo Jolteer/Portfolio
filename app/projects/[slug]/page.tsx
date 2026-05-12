@@ -59,30 +59,32 @@ export default async function ProjectPage({
   if (!project) notFound();
 
   return (
-    <article className="space-y-8">
+    <article className="space-y-10">
       <Link
         href="/projects"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowLeft className="h-4 w-4" />
+        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         All projects
       </Link>
 
-      <header className="space-y-3">
-        <p className="text-sm text-muted-foreground">
+      <header className="space-y-4">
+        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
           {formatDate(project.date)}
           {project.role ? ` \u00b7 ${project.role}` : ""}
         </p>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
           {project.title}
         </h1>
-        <p className="text-lg text-muted-foreground">{project.summary}</p>
+        <p className="max-w-2xl text-lg text-muted-foreground">
+          {project.summary}
+        </p>
 
         <div className="flex flex-wrap items-center gap-1.5 pt-1">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-border bg-muted/60 px-2 py-0.5 text-xs text-muted-foreground"
+              className="rounded-full border border-border/70 bg-card/60 px-2 py-0.5 text-xs text-muted-foreground backdrop-blur"
             >
               {tag}
             </span>
@@ -96,7 +98,7 @@ export default async function ProjectPage({
                 href={project.links.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-sm hover:bg-muted transition-colors"
+                className="group inline-flex items-center gap-1.5 rounded-md border border-border bg-background/60 px-3 py-1.5 text-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-muted"
               >
                 <Github className="h-4 w-4" />
                 Source
@@ -107,7 +109,7 @@ export default async function ProjectPage({
                 href={project.links.live}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-sm hover:bg-muted transition-colors"
+                className="group inline-flex items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
                 <ExternalLink className="h-4 w-4" />
                 Live
@@ -118,7 +120,7 @@ export default async function ProjectPage({
                 href={project.links.demo}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-sm hover:bg-muted transition-colors"
+                className="group inline-flex items-center gap-1.5 rounded-md border border-border bg-background/60 px-3 py-1.5 text-sm backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-muted"
               >
                 <ExternalLink className="h-4 w-4" />
                 Demo

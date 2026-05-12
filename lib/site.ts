@@ -1,3 +1,18 @@
+function resolveSiteUrl(): string {
+  const explicit = process.env.NEXT_PUBLIC_SITE_URL;
+  if (explicit) return explicit.replace(/\/$/, "");
+
+  const prodHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (prodHost) return `https://${prodHost}`;
+
+  const previewHost = process.env.VERCEL_URL;
+  if (previewHost) return `https://${previewHost}`;
+
+  return "http://localhost:3000";
+}
+
+const SITE_URL = resolveSiteUrl();
+
 export const siteConfig = {
   name: "Joshua",
   title: "Joshua | Software Engineer",
@@ -5,8 +20,8 @@ export const siteConfig = {
     "Software engineer building reliable, well-crafted web apps.",
   description:
     "Portfolio of Joshua, a software engineer focused on full-stack web, ML, and developer tools. Selected projects, writing, and resume.",
-  url: "https://your-name.vercel.app",
-  ogImage: "https://your-name.vercel.app/og.png",
+  url: SITE_URL,
+  ogImage: `${SITE_URL}/api/og`,
   author: {
     name: "Joshua",
     role: "Software Engineer",
